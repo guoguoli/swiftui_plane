@@ -99,3 +99,145 @@ func test02() {
     let orResult = a || b      // true
     let notResult = !a         // false
 }
+// MARK: - Swift 控制流（Control Flow）
+func test03() {
+//    MARK: 1. if 语句
+    var condition = true
+    if condition {
+        // 条件为 true 时执行
+    }
+    var temperature = 25
+
+    if temperature > 30 {
+        print("天气炎热，注意防暑！")
+    } else {
+        print("天气宜人")
+    }
+    // 输出：天气宜人
+    let score = 85
+
+    if score >= 90 {
+        print("优秀")
+    } else if score >= 80 {
+        print("良好")
+    } else if score >= 60 {
+        print("及格")
+    } else {
+        print("需要努力")
+    }
+    // 输出：良好
+   
+
+    // 传统写法
+    let weatherAdvice1: String
+    if temperature <= 0 {
+        weatherAdvice1 = "非常寒冷，记得穿羽绒服"
+    } else if temperature >= 30 {
+        weatherAdvice1 = "酷热难耐，请注意防暑"
+    } else {
+        weatherAdvice1 = "温度适中，舒适宜人"
+    }
+
+    // Swift if 表达式写法（更简洁）
+    let weatherAdvice2 = if temperature <= 0 {
+        "非常寒冷，记得穿羽绒服"
+    } else if temperature >= 30 {
+        "酷热难耐，请注意防暑"
+    } else {
+        "温度适中，舒适宜人"
+    }
+//    MARK: 2. switch 语句
+    /*
+    switch value {
+    case value1:
+        // 匹配 value1 时执行
+    case value2:
+        // 匹配 value2 时执行
+    default:
+        // 所有情况都不匹配时执行
+    }
+     */
+    let grade = "A"
+
+    switch grade {
+    case "A":
+        print("满分！太棒了！")
+    case "B":
+        print("不错，继续加油")
+    case "C":
+        print("还需努力")
+    case "D":
+        print("需要加把劲")
+    default:
+        print("请加油赶上")
+    }
+    let fruit = "苹果"
+
+    switch fruit {
+    case "苹果", "梨", "桃":
+        print("这是温带水果")
+    case "香蕉", "芒果", "椰子":
+        print("这是热带水果")
+    default:
+        print("未知类型")
+    }
+    
+
+    switch score {
+    case 90...100:
+        print("等级：A")
+    case 80..<90:        // 80 到 89（不含 90）
+        print("等级：B")
+    case 60..<80:        // 60 到 79
+        print("等级：C")
+    default:
+        print("等级：D")
+    }
+}
+//MARK: - 函数
+func test04() {
+    func sayHello() {
+        print("你好，SwiftUI！")
+    }
+
+    sayHello()  // 调用函数
+    
+    func greet(name: String) -> String {
+        return "你好，\(name)！欢迎学习 SwiftUI"
+    }
+
+    let message = greet(name: "小明")
+    print(message)
+    // 输出：你好，小明！欢迎学习 SwiftUI
+    func add(a: Int, b: Int) -> Int {
+        return a + b
+    }
+
+    let sum = add(a: 5, b: 3)
+    print(sum)  // 输出：8
+    
+    // 参数标签让函数调用更像自然语言
+    func greet(person name: String, from hometown: String) -> String {
+        return "你好，\(name)！来自 \(hometown) 的朋友"
+    }
+
+    let result = greet(person: "小明", from: "北京")
+    print(result)
+    // 输出：你好，小明！来自 北京 的朋友
+    func add(_ a: Int, _ b: Int) -> Int {
+        return a + b
+    }
+
+    let sum1 = add(5, 3)  // 调用时不需要标签
+    print(sum1)  // 输出：8
+    
+    func greet(name: String, greeting: String = "你好") -> String {
+        return "\(greeting)，\(name)！"
+    }
+
+    print(greet(name: "小明"))
+    // 输出：你好，小明！
+
+    print(greet(name: "小红", greeting: "很高兴见到你"))
+    // 输出：很高兴见到你，小红！
+}
